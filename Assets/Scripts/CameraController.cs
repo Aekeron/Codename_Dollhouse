@@ -2,16 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NewBehaviourScript : MonoBehaviour
+public class CameraController : MonoBehaviour
 {
-    [SerializeField]
-    int testValueOne;
-    [SerializeField]
-    int testValueTwo;
-    [SerializeField]
-    int testValueThree;
-
-
     // Start is called before the first frame update
     void Start()
     {
