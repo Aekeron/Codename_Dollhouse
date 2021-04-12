@@ -2,11 +2,20 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class DollState : MonoBehaviour
+public abstract class DollState
 {
+    public virtual void ExecuteCycle()
+    {
+    }
 
-    public abstract void OnStateEntry();
+    public virtual void ExecuteCycle<t>(t attribute)
+    {
+    }
 
-    public abstract void ExecuteCycle();
+    public virtual void ExecuteCycle<t>(t[] attributes)
+    {
+
+    }
+
 }
 
