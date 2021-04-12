@@ -82,8 +82,6 @@ public class PlayerController : MonoBehaviour
                     Cursor.visible = false;
                     gamePaused = false;
                 }
-
-
             }
         }
     }
