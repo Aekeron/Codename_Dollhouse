@@ -13,13 +13,21 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     Transform playCam;
 
+    [SerializeField]
+    GameObject flashlight;
+
     public bool inputFrozen = true;
+
+    bool gamePaused = false;
 
     public void InitializeCharacter()
     {
         inputFrozen = false;
         transform.position = new Vector3(0.347f, 0f, 0.977f);
         Destroy(GetComponent<Animator>());
+
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
 
     // Start is called before the first frame update
@@ -54,6 +62,29 @@ public class PlayerController : MonoBehaviour
 
             playCam.localEulerAngles = camEuler;
             transform.eulerAngles = transEuler;
+
+            if(Input.GetKeyDown(KeyCode.F))
+            {
+                flashlight.SetActive(!flashlight.activeSelf);
+            }
+
+            if(Input.GetKeyDown(KeyCode.Escape))
+            {
+                if (gamePaused == false)
+                {
+                    Cursor.lockState = CursorLockMode.None;
+                    Cursor.visible = true;
+                    gamePaused = true;
+                }
+                else
+                {
+                    Cursor.lockState = CursorLockMode.Locked;
+                    Cursor.visible = false;
+                    gamePaused = false;
+                }
+
+
+            }
         }
     }
 }
