@@ -48,7 +48,7 @@ public class PlayerController : MonoBehaviour
 
             camEuler.x += yMouse * turnSpeed * Time.deltaTime;
 
-            camEuler.x = Mathf.Clamp(camEuler.x, 0, 40);
+            camEuler.x = Mathf.Clamp(camEuler.x, -40, 40);
 
             transEuler.y += xMouse * turnSpeed * Time.deltaTime;
 
