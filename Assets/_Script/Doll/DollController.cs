@@ -21,15 +21,7 @@ public class DollController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        GameObject[] rooms = GameObject.FindGameObjectsWithTag("RoomNode");
-        Transform[] roomTrans = new Transform[rooms.Length];
-
-        for(int i = 0; i < rooms.Length; i++)
-        {
-            roomTrans[i] = rooms[i].transform;
-        }
-        GetComponent<NavMeshAgent>().speed = moveSpeed;
-        dollState = new State_Patrol(roomTrans, GetComponent<NavMeshAgent>());
+        
     }
 
     // Update is called once per frame
@@ -39,7 +31,6 @@ public class DollController : MonoBehaviour
         {
             case AttributeState.Patrol:
 
-                dollState.ExecuteCycle();
 
                 break;
         }
