@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 0ea25c91dc065cf4ba087d4f9167ef66
+guid: 6dc7e0a16f993c341a1b6ba9dfd4abb2
 ModelImporter:
   serializedVersion: 19301
   internalIDToNameTable: []
@@ -7,8 +7,33 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: BedFrameMetal
-    second: {fileID: 2100000, guid: 0e5cce0dde259ff429ebba1b13eade36, type: 2}
+      name: CeilingStucco
+    second: {fileID: 2100000, guid: 0bfef9ec450206b46a4f0ebe5a6849dc, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Curtain
+    second: {fileID: 2100000, guid: 0bfef9ec450206b46a4f0ebe5a6849dc, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material
+    second: {fileID: 2100000, guid: 0bfef9ec450206b46a4f0ebe5a6849dc, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: No Name
+    second: {fileID: 2100000, guid: 0bfef9ec450206b46a4f0ebe5a6849dc, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: PinkDrywall
+    second: {fileID: 2100000, guid: 0bfef9ec450206b46a4f0ebe5a6849dc, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Trim
+    second: {fileID: 2100000, guid: 0bfef9ec450206b46a4f0ebe5a6849dc, type: 2}
   materials:
     materialImportMode: 1
     materialName: 0
