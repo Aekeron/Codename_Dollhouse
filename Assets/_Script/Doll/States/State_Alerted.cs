@@ -9,7 +9,7 @@ public class State_Alerted : PawnState
     Task_MoveToLocation alertTask;
     Task_LoSDetection exitTask;
 
-    bool arrivedToSource = false;n
+    bool arrivedToSource = false;
 
     public override bool ExecuteCycle(ref State_Results results)
     {
