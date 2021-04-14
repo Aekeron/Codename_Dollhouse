@@ -10,19 +10,69 @@ public class PawnInterface : MonoBehaviour
     bool pawnIsFocused = false;
 
     [SerializeField]
-    Transform[] rooms;
+    RoomInterface[] rooms;
+
+    [SerializeField]
+    GameObject player;
+
+    State_Results results;
 
     private void Start()
     {
-        currentState = new State_Patrol(rooms, GetComponent<NavMeshAgent>());
+        GameObject[] nodes = GameObject.FindGameObjectsWithTag("Room_Node");
+        rooms = new RoomInterface[nodes.Length];
+
+        for(int i = 0; i < nodes.Length; i++)
+        {
+            rooms[i] = nodes[i].GetComponent<RoomInterface>();
+        }
+
+        ExecuteNewState(State_Tag.PatrolState);
     }
 
     public void Update()
     {
-        if(currentState.ExecuteCycle())
+        if(currentState.ExecuteCycle(ref results))
         {
-            Debug.Log("Cycle Is Complete");
+            ExecuteNewState(results.nextState);
         }
+    }
+
+    void ExecuteNewState(State_Tag state)
+    {
+        switch(state)
+        {
+            case State_Tag.PatrolState:
+                currentState = new State_Patrol(rooms, GetComponent<NavMeshAgent>(), transform, player.transform);
+                break;
+
+            case State_Tag.AggroState:
+
+                currentState = new State_Aggro(GetComponent<NavMeshAgent>(), player.transform);
+
+                break;
+
+            case State_Tag.Idle:
+
+                currentState = new State_Idle();
+
+                break;
+        }
+    }
+
+    public void PassExternalTrigger(int code)
+    {
+        currentState.ExternalTrigger(code);
+    }
+
+    public void PassExternalTrigger<t>(int code, t attribute)
+    {
+        currentState.ExternalTrigger<t>(code, attribute);
+    }
+
+    public void PassExternalTrigger<t>(int code, t[] attributes)
+    {
+        currentState.ExternalTrigger<t>(code, attributes);
     }
 
 }

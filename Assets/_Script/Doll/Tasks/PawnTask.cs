@@ -4,8 +4,7 @@ using UnityEngine;
 
 public abstract class PawnTask
 {
-    public bool asyncQue;
-    public bool deleteOnFinish;
-
+    //Task Complete Boolean -> Executes logic and checks if exit conditions are met
     public abstract bool TaskComplete();
 }
+
