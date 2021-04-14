@@ -5,6 +5,4 @@ using UnityEngine;
 public class RoomInterface : MonoBehaviour
 {
     public Vector3[] patrolRoute;
-    
-
 }

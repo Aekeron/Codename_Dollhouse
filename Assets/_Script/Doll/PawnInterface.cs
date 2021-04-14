@@ -38,6 +38,11 @@ public class PawnInterface : MonoBehaviour
         }
     }
 
+    public void AlertNpc_Callback(RoomInterface room)
+    {
+
+    }
+
     void ExecuteNewState(State_Tag state)
     {
         switch(state)
@@ -60,19 +65,5 @@ public class PawnInterface : MonoBehaviour
         }
     }
 
-    public void PassExternalTrigger(int code)
-    {
-        currentState.ExternalTrigger(code);
-    }
-
-    public void PassExternalTrigger<t>(int code, t attribute)
-    {
-        currentState.ExternalTrigger<t>(code, attribute);
-    }
-
-    public void PassExternalTrigger<t>(int code, t[] attributes)
-    {
-        currentState.ExternalTrigger<t>(code, attributes);
-    }
 
 }
