@@ -3,37 +3,7 @@ guid: 6dc7e0a16f993c341a1b6ba9dfd4abb2
 ModelImporter:
   serializedVersion: 19301
   internalIDToNameTable: []
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: CeilingStucco
-    second: {fileID: 2100000, guid: 0bfef9ec450206b46a4f0ebe5a6849dc, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Curtain
-    second: {fileID: 2100000, guid: 0bfef9ec450206b46a4f0ebe5a6849dc, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Material
-    second: {fileID: 2100000, guid: 0bfef9ec450206b46a4f0ebe5a6849dc, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: No Name
-    second: {fileID: 2100000, guid: 0bfef9ec450206b46a4f0ebe5a6849dc, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: PinkDrywall
-    second: {fileID: 2100000, guid: 0bfef9ec450206b46a4f0ebe5a6849dc, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Trim
-    second: {fileID: 2100000, guid: 0bfef9ec450206b46a4f0ebe5a6849dc, type: 2}
+  externalObjects: {}
   materials:
     materialImportMode: 1
     materialName: 0
