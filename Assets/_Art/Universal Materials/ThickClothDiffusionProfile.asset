@@ -10,15 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b2686e09ec7aef44bad2843e4416f057, type: 3}
-  m_Name: Test
+  m_Name: ThickClothDiffusionProfile
   m_EditorClassIdentifier: 
   m_Version: 1
   profile:
-    scatteringDistance: {r: 1.0717735, g: 1.0717735, b: 1.0717735, a: 1}
+    scatteringDistance: {r: 0.3773585, g: 0.3773585, b: 0.3773585, a: 1}
     transmissionTint: {r: 1, g: 1, b: 1, a: 1}
     texturingMode: 0
-    transmissionMode: 1
+    transmissionMode: 0
     thicknessRemap: {x: 0, y: 5}
     worldScale: 1
-    ior: 1.37
-    hash: 1077022331
+    ior: 1.78
+    hash: 1076896921

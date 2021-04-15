@@ -1,14 +1,9 @@
 fileFormatVersion: 2
-guid: c3fcff5b046a0724ca25598bfe5c637c
+guid: 0c3c0c73836e41748b32d6e9b37eace5
 ModelImporter:
   serializedVersion: 19301
   internalIDToNameTable: []
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: BedFrameMetal
-    second: {fileID: 2100000, guid: 0e5cce0dde259ff429ebba1b13eade36, type: 2}
+  externalObjects: {}
   materials:
     materialImportMode: 1
     materialName: 0
