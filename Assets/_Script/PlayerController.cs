@@ -24,6 +24,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     GameObject flashlight;
 
+    Vector3 deltaDir;
+
     //Input Validity Flag -> Used to block during stuns/cinematics/etc
     public bool inputFrozen = true;
     
@@ -33,8 +35,14 @@ public class PlayerController : MonoBehaviour
     //Second Camera Active Flag
     bool secondCamActive = false;
 
+    Rigidbody playRigid;
+
+    float pitch = 0;
+
     public void InitializeCharacter()
     {
+        playRigid = GetComponent<Rigidbody>();
+
         //Ensure input is valid
         inputFrozen = false;
         //Set player into start position
@@ -95,31 +103,19 @@ public class PlayerController : MonoBehaviour
 
             //Collect Camera Input
             float xMouse = Input.GetAxis("Mouse X");
-            float yMouse = -Input.GetAxis("Mouse Y");
 
-            //Utilize movement input to calculate direction
-            Vector3 deltaDir = ((transform.forward * zInput) + (transform.right * xInput)).normalized;
-            //Apply movement in direction, with steady movespeed
-            transform.position += deltaDir * moveSpeed * Time.deltaTime;
-            
-
-            //Reference camera rotation from start of frame
-            Vector3 camEuler = playCam.localEulerAngles;
             //Reference player rotation from start of frame
             Vector3 transEuler = transform.eulerAngles;
-
-            //Apply mouse input to camera rotation on x axis
-            camEuler.x += yMouse * turnSpeed * Time.deltaTime;
-            //Clamp rotation between desired rotations
-            camEuler.x = Mathf.Clamp(camEuler.x, -40, 40);
 
             //Apply mouse input to player rotation on y axis
             transEuler.y += xMouse * turnSpeed * Time.deltaTime;
 
-            //Apply camera and player rotations to transforms
-            playCam.localEulerAngles = camEuler;
             transform.eulerAngles = transEuler;
 
+            pitch = Mathf.Clamp(pitch - Input.GetAxis("Mouse Y"), -60, 60);
+            playCam.localRotation = Quaternion.Euler(pitch, 0, 0);
+
+        
             //If Flashlight input pressed
             if(Input.GetKeyDown(KeyCode.F))
             {
@@ -127,5 +123,10 @@ public class PlayerController : MonoBehaviour
                 flashlight.SetActive(!flashlight.activeSelf);
             }          
         }
+    }
+
+    private void FixedUpdate()
+    {
+        playRigid.velocity = deltaDir * moveSpeed;
     }
 }
