@@ -346,6 +346,7 @@ MonoBehaviour:
   diffusionProfileSettings: {fileID: 0}
   diffusionProfileSettingsList:
   - {fileID: 11400000, guid: 6b62a93465ee23040a0418704f15450f, type: 2}
+  - {fileID: 11400000, guid: 82b6a0e43c8849a489d5926fb472ca76, type: 2}
   beforeTransparentCustomPostProcesses: []
   beforePostProcessCustomPostProcesses: []
   afterPostProcessCustomPostProcesses: []
