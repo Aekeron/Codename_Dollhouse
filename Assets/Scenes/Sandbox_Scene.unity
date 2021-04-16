@@ -1020,7 +1020,7 @@ GameObject:
   - component: {fileID: 1150444185}
   - component: {fileID: 1150444189}
   m_Layer: 0
-  m_Name: Cube
+  m_Name: Alert_Trigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1112,7 +1112,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5cac0fd6a3d3124ab9e5a6ff8d3d543, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pawn: {fileID: 0}
+  pawn: {fileID: 1653444303}
 --- !u!1 &1171064892
 GameObject:
   m_ObjectHideFlags: 0
