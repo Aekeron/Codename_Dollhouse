@@ -45,8 +45,7 @@ public class PlayerController : MonoBehaviour
 
         //Ensure input is valid
         inputFrozen = false;
-        //Set player into start position
-        transform.position = new Vector3(0.347f, 0f, 0.977f);
+     
         //Destroy unneeded Components
         Destroy(GetComponent<Animator>());
 
@@ -100,6 +99,9 @@ public class PlayerController : MonoBehaviour
             //Collect Movement Input
             float zInput = Input.GetAxisRaw("Vertical");
             float xInput = Input.GetAxisRaw("Horizontal");
+
+            deltaDir = transform.forward * zInput + transform.right * xInput;
+            deltaDir = deltaDir.normalized;
 
             //Collect Camera Input
             float xMouse = Input.GetAxis("Mouse X");
