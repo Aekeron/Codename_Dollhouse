@@ -16,13 +16,12 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     Transform playCam;
 
-    //NPC view Camera
-    [SerializeField]
-    Transform secondCam;
-
     //Flashlight object
     [SerializeField]
     GameObject flashlight;
+
+    [SerializeField]
+    float interactRange;
 
     Vector3 deltaDir;
 
@@ -32,12 +31,13 @@ public class PlayerController : MonoBehaviour
     //Pause Flag
     bool gamePaused = false;
 
-    //Second Camera Active Flag
-    bool secondCamActive = false;
-
     Rigidbody playRigid;
 
     float pitch = 0;
+
+    HidingSpot curSpot;
+
+    public bool isHiding = false;
 
     public void InitializeCharacter()
     {
@@ -87,15 +87,6 @@ public class PlayerController : MonoBehaviour
         //If input is valid
         if (!inputFrozen)
         {
-            if(Input.GetKeyDown(KeyCode.Tab))
-            {
-                //Switch Cameras
-                secondCamActive = !secondCamActive;
-
-                playCam.gameObject.SetActive(!secondCamActive);
-                secondCam.gameObject.SetActive(secondCamActive);
-            }
-            
             //Collect Movement Input
             float zInput = Input.GetAxisRaw("Vertical");
             float xInput = Input.GetAxisRaw("Horizontal");
@@ -123,8 +114,45 @@ public class PlayerController : MonoBehaviour
             {
                 //Toggle flashlight activation
                 flashlight.SetActive(!flashlight.activeSelf);
-            }          
+            }
+            
+            if(Input.GetKeyDown(KeyCode.Space))
+            {
+                if (curSpot == null)
+                {
+                    RaycastHit hit;
+
+                    Vector3 rayOrigin = new Vector3(0.5f, 0.5f, 0f); // center of the screen
+
+                    // actual Ray
+                    Ray ray = Camera.main.ViewportPointToRay(rayOrigin);
+
+                    if (Physics.Raycast(ray, out hit, interactRange))
+                    {
+                        // our Ray intersected a collider
+                        if (hit.collider.tag == "Hiding Spot")
+                        {
+                            curSpot = hit.collider.GetComponent<HidingSpot>();
+                            curSpot.HideAtSpot(transform, playCam);
+                            isHiding = true;
+                        }
+                    }
+                }
+                else
+                {
+                    curSpot.StopHidingAtSpot();
+                    curSpot = null;
+
+                    playCam.localEulerAngles = Vector3.zero;
+
+                    pitch = 0;
+
+                    isHiding = false;
+                }
+            }
         }
+
+        
     }
 
     private void FixedUpdate()

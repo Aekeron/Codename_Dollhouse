@@ -44,37 +44,10 @@ public class State_Patrol : PawnState
         //If Primary task is complete
         if(patrolTask.TaskComplete())
         {
-            //If we are finished with the last target room
-            if(goToNextRoom)
-            {
-                //Single Run Flag
-                goToNextRoom = false;
+            roomIndex = GetNextRoom();
 
-                //Find next room
-                roomIndex = GetNextRoom();
-
-                //Reset patrol index
-                patrolIndex = 0;
-
-                //Set Primary Task to new task -> Move to next room
-                patrolTask = new Task_MoveToLocation(pawnAgent, roomsToPatrol[roomIndex].transform.position);
-            } 
-            else
-            {
-                //If pawn has more points to explore within room
-                if(patrolIndex < roomsToPatrol[roomIndex].patrolRoute.Length)
-                {
-                    //Set Primary Task -> Move to next point within room
-                    patrolTask = new Task_MoveToLocation(pawnAgent, roomsToPatrol[roomIndex].patrolRoute[patrolIndex]);
-
-                    patrolIndex++;
-                }
-                else
-                {
-                    //Set flag to move to new room
-                    goToNextRoom = true;
-                }
-            }
+           //Set Primary Task to new task -> Move to next room
+           patrolTask = new Task_MoveToLocation(pawnAgent, roomsToPatrol[roomIndex].point.position);
         }
 
         return false;
@@ -114,7 +87,7 @@ public class State_Patrol : PawnState
         patrolIndex = 0;
 
         //Create first Primary Task -> Move to first room in stored array
-        patrolTask = new Task_MoveToLocation(pawnAgent, roomsToPatrol[roomIndex].patrolRoute[patrolIndex]);
+        patrolTask = new Task_MoveToLocation(pawnAgent, roomsToPatrol[roomIndex].point.position);
     }
 
 }

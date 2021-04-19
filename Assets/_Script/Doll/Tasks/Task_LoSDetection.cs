@@ -18,8 +18,11 @@ public class Task_LoSDetection : PawnTask
         //If focusObj is within Line of Sight Range
         if(Vector3.Distance(origin.position, focusObj.position) <= losRange)
         {
-            //Task complete
-            return true;
+            if(!focusObj.GetComponent<PlayerController>().isHiding)
+            {
+                //Task complete
+                return true;
+            }     
         }
 
         //Task not complete

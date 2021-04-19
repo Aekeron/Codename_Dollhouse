@@ -32,9 +32,12 @@ public class PawnInterface : MonoBehaviour
 
     public void Update()
     {
-        if(currentState.ExecuteCycle(ref results))
+        if (currentState != null)
         {
-            ExecuteNewState(results.nextState);
+            if (currentState.ExecuteCycle(ref results))
+            {
+                ExecuteNewState(results.nextState);
+            }
         }
     }
 
